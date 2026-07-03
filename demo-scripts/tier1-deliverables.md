@@ -15,11 +15,13 @@
 
 > "Summarize the key requirements in this document."
 
-Run this first and point out: this is where most people stop — a chat reply they'd then manually reformat.
+Run this first and point out: this is where most people stop — a chat reply they'd then manually reformat. A pre-generated example of this exact output (run against the sample input) is included: [`baseline-output-summary.md`](./baseline-output-summary.md) — flat, one-paragraph, un-categorized.
 
 **Step 2 — the actual demo prompt (structured deliverable):**
 
 > "Read this client requirement document and produce a structured Word document with: an executive summary, a numbered list of functional requirements grouped by category, a list of open questions that need client clarification, and a rough timeline estimate table. Save it as a proper .docx file I can send to the client."
+
+A pre-generated example of this output (run against the same sample input) is included as a real, validated .docx: [`structured-deliverable.docx`](./structured-deliverable.docx). Both example outputs are also linked as downloadable files directly on the Tier 1 slides in the live deck, so the audience can grab them without breaking the flow of the talk.
 
 **Step 3 (optional, if time and audience skew toward estimation/finance) — Excel variant:**
 

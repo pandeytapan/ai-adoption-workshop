@@ -270,19 +270,96 @@
       <a class="dl-link" href="demo-scripts/sample-input-messy-requirements.md" download>↓ Download sample input (.md)</a>
       <ul class="clean">
         <li class="fragment fade-up">Take a genuinely messy, anonymized client requirement doc — not a clean staged sample.</li>
-        <li class="fragment fade-up">Ask for a structured <strong>.docx</strong> output: exec summary, grouped requirements, open questions, timeline table.</li>
-        <li class="fragment fade-up">Open the actual file live. Point at one structural choice it made well.</li>
+        <li class="fragment fade-up">Run the <strong>same input</strong> through two prompts, back to back — baseline, then structured.</li>
+        <li class="fragment fade-up">Open the actual .docx file live. Point at one structural choice it made well.</li>
       </ul>
-      <pre class="fragment fade-up"><code>Read this client requirement document and produce a structured
-Word document with: an executive summary, a numbered list of
-functional requirements grouped by category, a list of open
-questions needing client clarification, and a rough timeline
-estimate table. Save it as a .docx file I can send to the client.</code></pre>
       <p class="big-line fragment fade-up" style="font-size:1.1em;">"I didn't copy anything. That's the mental shift for tier one."</p>
       <aside class="notes">
         Narrate what's happening as it works, not just the end result. Full prompt variants (Excel scoping model, etc.)
         are in demo-scripts/tier1-deliverables.md.
       </aside>
+    </section>
+
+    <!-- 5a: Tier 1 — baseline prompt + output -->
+    <section>
+      <h3>Tier 1 — Step 1</h3>
+      <h2>Same input, baseline prompt</h2>
+      <pre class="fragment fade-up"><code>Summarize the key requirements in this document.</code></pre>
+      <div class="card fragment fade-up" style="margin-top:0.5em;">
+        <h3 style="text-transform:uppercase; letter-spacing:0.05em;">Output (excerpt)</h3>
+        <p style="font-size:0.58em; line-height:1.4;">"The client wants to rebuild their distributor portal... The main requirements raised are: making the order status page real-time... adding an approval step before an order is confirmed... keeping invoice download as-is... possibly adding SSO... fixing search performance past 10k records... and improving mobile usability, though the priority of this is unclear..."</p>
+      </div>
+      <a class="dl-link fragment fade-up" href="demo-scripts/baseline-output-summary.md" download>↓ Download full baseline output (.md)</a>
+      <p class="fragment fade-up" style="font-size:0.52em; color:var(--muted); margin-top:0.35em;">Accurate, but flat — one paragraph, no categories, no client-ready shape. The $40k incident and the audit-trail gap are both buried in there somewhere.</p>
+      <aside class="notes">Run this one first, live, so the room sees exactly what "default" AI use looks like before the contrast lands.</aside>
+    </section>
+
+    <!-- 5b: Tier 1 — structured prompt + output -->
+    <section>
+      <h3>Tier 1 — Step 2</h3>
+      <h2>Same input, structured prompt</h2>
+      <pre class="fragment fade-up"><code>Read this client requirement document and produce a structured
+Word document with: an executive summary, a numbered list of
+functional requirements grouped by category, a list of open
+questions needing client clarification, and a rough timeline
+estimate table. Save it as a .docx file I can send to the client.</code></pre>
+      <div class="two-col fragment fade-up" style="margin-top:0.5em;">
+        <div class="card">
+          <h3>Output structure</h3>
+          <p style="font-size:0.65em;">Exec summary · 6 categories, 10 numbered requirements · 6 open questions · 3-phase timeline table</p>
+        </div>
+        <div class="card">
+          <h3>One line that stands out</h3>
+          <p style="font-size:0.65em; font-style:italic;">"...one $40,000 order that should not have been confirmed" — flagged as its own point, not buried in a paragraph.</p>
+        </div>
+      </div>
+      <a class="dl-link fragment fade-up" href="demo-scripts/structured-deliverable.docx" download>↓ Download the actual .docx</a>
+      <aside class="notes">Open the real .docx live and scroll to the timeline table — that's the moment that usually lands.</aside>
+    </section>
+
+    <!-- 5c: Tier 1 — prompting takeaway -->
+    <section>
+      <h3>Tier 1 — Takeaway</h3>
+      <h2>What made the second prompt work</h2>
+      <ul class="clean">
+        <li class="fragment fade-up"><strong>Named the deliverable and its format</strong> — ".docx", not "a summary" — removes guessing about output shape.</li>
+        <li class="fragment fade-up"><strong>Specified the exact sections</strong> — exec summary, grouped requirements, open questions, timeline — instead of "organize it well."</li>
+        <li class="fragment fade-up"><strong>Asked it to group and number</strong>, forcing the categorization the messy input never had.</li>
+        <li class="fragment fade-up"><strong>Asked for open questions explicitly</strong> — surfaces uncertainty (SSO scope, mobile priority) instead of silently guessing an answer.</li>
+      </ul>
+      <p class="big-line fragment fade-up">Vague prompt → vague shape. Specific deliverable → specific shape. The model mirrors the structure you hand it.</p>
+      <aside class="notes">This is the bridge slide into "why" — keep it tight, then move to the technical explanation.</aside>
+    </section>
+
+    <!-- 5d: Tier 1 — under the hood, part 1 -->
+    <section>
+      <h3>Tier 1 — Under the hood</h3>
+      <h2>Why the same model gives two different outputs</h2>
+      <div class="two-col fragment fade-up">
+        <div class="card">
+          <h3>Not bag-of-words</h3>
+          <p style="font-size:0.62em;">Older NLP (bag-of-words / TF-IDF) treated text as an unordered set of words — order and structure were discarded. An LLM tokenizes into subword units but keeps every position, via positional encoding.</p>
+        </div>
+        <div class="card">
+          <h3>Self-attention</h3>
+          <p style="font-size:0.62em;">Every output token is computed by attending over <em>all</em> prior tokens. Your instruction words — "docx", "grouped", "open questions" — sit in the same attended context as the input doc, at every generation step.</p>
+        </div>
+      </div>
+      <p class="fragment fade-up" style="font-size:0.55em; color:var(--muted); margin-top:0.45em;">That's why four extra format words in the prompt measurably reshape every sentence generated after them — the instruction isn't a separate channel, it's part of the same context the model attends over.</p>
+      <aside class="notes">Keep this conceptual — attention weights, not the full transformer math. Save equations for a whiteboard follow-up if someone asks.</aside>
+    </section>
+
+    <!-- 5e: Tier 1 — under the hood, part 2 -->
+    <section>
+      <h3>Tier 1 — Under the hood</h3>
+      <h2>Next-token prediction + the feedback loop</h2>
+      <ul class="clean">
+        <li class="fragment fade-up">At its core, the model predicts <strong>one next token</strong> at a time, conditioned on everything before it — repeated thousands of times to produce a response.</li>
+        <li class="fragment fade-up">Pretraining alone gives fluent, plausible completions — it doesn't reliably follow explicit instructions yet.</li>
+        <li class="fragment fade-up"><strong>RLHF / instruction-tuning</strong> layers a feedback loop on top: human raters (or a reward model trained on human preferences) score candidate outputs, and the model is nudged — via gradient updates — toward completions that satisfy explicit asks like "produce sections X, Y, Z."</li>
+        <li class="fragment fade-up">That's the mechanism behind today's demo: a clearer instruction gives the reward-shaped model a sharper target to predict toward, one token at a time.</li>
+      </ul>
+      <aside class="notes">This closes the technical arc: tokenization+attention explain "how it reads," RLHF explains "why it obeys." Both matter for why prompt quality changes output quality.</aside>
     </section>
 
     <!-- 6: Tier 2 header -->
