@@ -12,7 +12,13 @@ Open with a blunt before/after:
 - **Before:** paste a paragraph into a chat box, get a paragraph back.
 - **After:** an agent that reads a doc, checks three sources, drafts a deliverable, and flags what needs a human.
 
-Don't demo yet — just set the stakes.
+To make the "before" state concrete rather than just described, the slide shows an actual example exchange:
+
+> **Pasted in:** "We need bulk invoice uploads, an approval step before finance sees it, and search that doesn't crawl once we're past 10k records. Also has to work with our SSO. Rough timeline?"
+>
+> **Copied out:** "Here's a summary: 1) Bulk upload 2) Approval workflow 3) Faster search 4) SSO integration. Let me know if you'd like more detail!" — then manually reformatted into whatever the client actually needs.
+
+Don't demo yet — just set the stakes. The example above is shown as static text on the slide, not run live.
 
 > "If you're only using AI for snippets, you're using 10% of what's available and doing 90% of the work yourself."
 

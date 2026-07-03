@@ -122,6 +122,27 @@
     font-weight: 700;
   }
 
+  .reveal .chat-mock { display: flex; flex-direction: column; gap: 0.45em; margin-top: 0.6em; }
+  .reveal .bubble {
+    border-radius: 8px;
+    padding: 0.55em 0.75em;
+    font-size: 0.58em;
+    line-height: 1.45;
+    font-style: italic;
+  }
+  .reveal .bubble .who {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 0.25em;
+  }
+  .reveal .bubble.user { background: #ffffff; border: 1px solid var(--line); }
+  .reveal .bubble.ai { background: var(--bg-soft); border: 1px solid var(--line); }
+
   .reveal .footer-tag {
     position: absolute;
     bottom: 14px;
@@ -162,7 +183,11 @@
         <div class="card fragment fade-up">
           <span class="tag">TODAY</span>
           <h3>Paste → Copy</h3>
-          <p style="font-size:0.75em;">Paste a paragraph into a chat box. Get a paragraph back. Manually reformat it into whatever the client actually needs.</p>
+          <div class="chat-mock">
+            <div class="bubble user"><span class="who">Pasted in</span>"We need bulk invoice uploads, an approval step before finance sees it, and search that doesn't crawl once we're past 10k records. Also has to work with our SSO. Rough timeline?"</div>
+            <div class="bubble ai"><span class="who">Copied out</span>"Here's a summary: 1) Bulk upload 2) Approval workflow 3) Faster search 4) SSO integration. Let me know if you'd like more detail!"</div>
+          </div>
+          <p style="font-size:0.55em; color:var(--muted); margin-top:0.5em;">→ then manually reformatted into whatever the client actually needs.</p>
         </div>
         <div class="card fragment fade-up">
           <span class="tag">POSSIBLE</span>
