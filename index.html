@@ -110,6 +110,22 @@
     margin-right: 6px;
   }
 
+  .reveal .dl-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-size: 0.42em;
+    font-weight: 600;
+    color: var(--accent-dark);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 5px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    margin: 0.3em 0 0.5em 0;
+  }
+  .reveal .dl-link:hover { background: rgba(31,111,235,0.1); border-color: var(--accent); }
+
   .reveal ul.clean { list-style: none; margin-left: 0; padding-left: 0; }
   .reveal ul.clean li {
     position: relative;
@@ -251,6 +267,7 @@
     <section>
       <h3>Tier 1 — Live demo</h3>
       <h2>A messy requirement doc → a real file</h2>
+      <a class="dl-link" href="demo-scripts/sample-input-messy-requirements.md" download>↓ Download sample input (.md)</a>
       <ul class="clean">
         <li class="fragment fade-up">Take a genuinely messy, anonymized client requirement doc — not a clean staged sample.</li>
         <li class="fragment fade-up">Ask for a structured <strong>.docx</strong> output: exec summary, grouped requirements, open questions, timeline table.</li>
