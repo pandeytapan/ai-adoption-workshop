@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <title>AI-First Adoption Workshop — Cynoteck</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
@@ -154,6 +154,12 @@
   }
 
   .reveal .progress { color: var(--accent); height: 4px; }
+
+  @media (max-width: 600px) {
+    .reveal .two-col { grid-template-columns: 1fr; gap: 0.6em; }
+    .reveal h1 { font-size: 1.9em; }
+    .reveal h2 { font-size: 1.3em; }
+  }
 </style>
 </head>
 <body>
