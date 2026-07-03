@@ -175,10 +175,50 @@
 
   .reveal .progress { color: var(--accent); height: 4px; }
 
+  .reveal .flow-label {
+    display: block;
+    font-size: 0.48em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 0.4em;
+  }
+  .reveal .flow-col { display: flex; flex-direction: column; }
+  .reveal .flow-step {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.32em 0.55em;
+    font-size: 0.55em;
+    line-height: 1.3;
+  }
+  .reveal .flow-col.agentic .flow-step { border-left-color: #9a5b00; }
+  .reveal .flow-step .step-title {
+    display: block;
+    font-weight: 700;
+    color: var(--accent-dark);
+    font-size: 1em;
+    margin-bottom: 0.1em;
+  }
+  .reveal .flow-col.agentic .flow-step .step-title { color: #9a5b00; }
+  .reveal .flow-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 0.6em;
+    font-weight: 700;
+    margin: 0.08em 0;
+  }
+  .reveal .flow-col.agentic .flow-arrow { color: #9a5b00; }
+
   @media (max-width: 600px) {
     .reveal .two-col { grid-template-columns: 1fr; gap: 0.6em; }
     .reveal h1 { font-size: 1.9em; }
     .reveal h2 { font-size: 1.3em; }
+    .reveal .flow-step { padding: 0.22em 0.45em; font-size: 0.5em; line-height: 1.2; }
+    .reveal .flow-arrow { margin: 0.02em 0; font-size: 0.5em; }
+    .reveal .flow-label { font-size: 0.42em; margin-bottom: 0.25em; }
   }
 </style>
 </head>
@@ -447,6 +487,54 @@ gaps we'd need to address before responding.</code></pre>
       </ul>
       <p class="big-line fragment fade-up" style="font-size:1.05em;">Four steps, one prompt, a real gap caught before it became a lost bid.</p>
       <aside class="notes">Land this before moving to Tier 3 — the audience should leave this beat believing the tool pushed back on something, not just executed cleanly.</aside>
+    </section>
+
+    <!-- 7d: Tier 2 — Under the hood -->
+    <section>
+      <h3>Tier 2 — Under the hood</h3>
+      <h2>Two very different ways to run this agent</h2>
+      <div class="two-col fragment fade-up">
+        <div class="flow-col">
+          <span class="flow-label">Today — single prompt</span>
+          <div class="flow-step">
+            <span class="step-title">Both docs, one context</span>
+            RFP + capability doc pasted into the same chat window
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <span class="step-title">One generation, four steps</span>
+            Self-attention over the full pasted context; the enumerated steps act as an internal scratchpad
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <span class="step-title">Structured text out</span>
+            Table + score appear in the same reply — a person still saves the .docx
+          </div>
+        </div>
+        <div class="flow-col agentic">
+          <span class="flow-label">Production — tool-calling loop</span>
+          <div class="flow-step">
+            <span class="step-title">Trigger</span>
+            A new RFP lands in an inbox or CRM
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <span class="step-title">Reason → Act → Observe</span>
+            Model calls a tool (retrieve a capability-doc chunk via RAG), gets a real result back, repeats per requirement
+          </div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step">
+            <span class="step-title">Real side effects</span>
+            Writes the .docx to a shared drive, updates the CRM, notifies a person — no copy-paste
+          </div>
+        </div>
+      </div>
+      <p class="big-line fragment fade-up" style="font-size:1.0em; margin-top:0.6em;">The demo proves the reasoning holds up. The tool-calling loop is what would turn it into "it can do things."</p>
+      <aside class="notes">
+        Be upfront if asked: what's running today is one very well-structured prompt, not an external agent loop.
+        The left column is genuinely what's happening; the right column is what a production build would add —
+        tools, retrieval for docs too big to paste, and real writes instead of a chat reply.
+      </aside>
     </section>
 
     <!-- 8: Tier 3 header -->
