@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-First Adoption Workshop — Cynoteck</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/white.min.css" id="theme">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --accent: #1f6feb;
+    --accent-dark: #0b3d91;
+    --ink: #1c1f26;
+    --muted: #5b6472;
+    --line: #e6e9ee;
+    --bg-soft: #f6f8fb;
+  }
+
+  .reveal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--ink); }
+
+  .reveal h1, .reveal h2, .reveal h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    color: var(--ink);
+  }
+
+  .reveal h1 { font-size: 2.4em; }
+  .reveal h2 { font-size: 1.7em; color: var(--accent-dark); }
+  .reveal h3 { font-size: 1.15em; color: var(--muted); font-weight: 600; }
+
+  .reveal p, .reveal li { font-weight: 400; color: var(--ink); line-height: 1.5; }
+
+  .reveal .slides section { text-align: left; padding: 20px 10px; }
+  .reveal .slides section.center-slide { text-align: center; }
+
+  .kicker {
+    display: inline-block;
+    font-size: 0.42em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(31, 111, 235, 0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+
+  .big-line {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--accent-dark);
+    border-left: 6px solid var(--accent);
+    padding: 0.3em 0.6em;
+    background: var(--bg-soft);
+    border-radius: 6px;
+    margin: 0.6em 0;
+  }
+
+  .reveal .timeline { display: flex; flex-direction: column; gap: 0.55em; margin-top: 0.4em; }
+  .timeline-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8em;
+    padding: 0.55em 0.9em;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    border-left: 5px solid var(--accent);
+  }
+  .timeline-row .time { font-family: 'JetBrains Mono', monospace; font-size: 0.6em; color: var(--muted); min-width: 5.4em; flex-shrink: 0; }
+  .timeline-row .label { font-size: 0.75em; font-weight: 600; }
+
+  .reveal pre { box-shadow: none; border: 1px solid var(--line); border-radius: 8px; width: 100%; }
+  .reveal pre code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-soft);
+    color: var(--ink);
+    padding: 16px;
+    font-size: 0.55em;
+    line-height: 1.5;
+    max-height: none;
+  }
+
+  .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; }
+  .reveal .card {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1em 1.2em;
+  }
+  .reveal .card h3 { margin-top: 0; color: var(--accent-dark); }
+
+  .reveal .tag {
+    display: inline-block;
+    font-size: 0.5em;
+    font-weight: 600;
+    color: var(--accent-dark);
+    background: rgba(31,111,235,0.1);
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-right: 6px;
+  }
+
+  .reveal ul.clean { list-style: none; margin-left: 0; padding-left: 0; }
+  .reveal ul.clean li {
+    position: relative;
+    padding-left: 1.4em;
+    margin-bottom: 0.55em;
+    font-size: 0.85em;
+  }
+  .reveal ul.clean li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .reveal .footer-tag {
+    position: absolute;
+    bottom: 14px;
+    left: 24px;
+    font-size: 0.32em;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .reveal .progress { color: var(--accent); height: 4px; }
+</style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1: Title -->
+    <section class="center-slide">
+      <span class="kicker">Cynoteck · Internal Workshop</span>
+      <h1>AI-First Adoption Workshop</h1>
+      <p style="font-size:0.85em; color:var(--muted); max-width:26em; margin:0.8em auto;">
+        Moving from prompt-and-copy to AI that plans, acts, and touches real systems.
+      </p>
+      <p style="font-size:0.55em; color:var(--muted); margin-top:2em;">90 minutes · use → / ← or space to advance · press S for speaker notes</p>
+      <aside class="notes">
+        Start with the room, not the tool. Ask: "Show of hands — who used an AI chat tool this week?"
+        Then: "Who had it actually touch a file, a doc, or your inbox — not just reply in the chat box?"
+        That gap is the talk.
+      </aside>
+    </section>
+
+    <!-- 2: The gap / reframe -->
+    <section>
+      <h3>00 — Reframe, not features</h3>
+      <h2>What most people think AI is</h2>
+      <div class="two-col" style="margin-top:0.6em;">
+        <div class="card fragment fade-up">
+          <span class="tag">TODAY</span>
+          <h3>Paste → Copy</h3>
+          <p style="font-size:0.75em;">Paste a paragraph into a chat box. Get a paragraph back. Manually reformat it into whatever the client actually needs.</p>
+        </div>
+        <div class="card fragment fade-up">
+          <span class="tag">POSSIBLE</span>
+          <h3>Read → Act → Flag</h3>
+          <p style="font-size:0.75em;">An agent reads a doc, checks three sources, drafts a real deliverable, and flags what still needs a human.</p>
+        </div>
+      </div>
+      <p class="big-line fragment fade-up">"If you're only using AI for snippets, you're using 10% of what's available and doing 90% of the work yourself."</p>
+      <aside class="notes">
+        Land this line and let it sit. Don't demo anything yet — the reframe needs to land on its own first.
+        Frame the three tiers as a ladder: Tier 1 — it produces things. Tier 2 — it does things across systems.
+        Tier 3 — it works inside your codebase like a teammate.
+      </aside>
+    </section>
+
+    <!-- 3: The arc / agenda -->
+    <section>
+      <h3>The next 90 minutes</h3>
+      <h2>Three tiers, escalating capability</h2>
+      <div class="timeline">
+        <div class="timeline-row fragment fade-in"><span class="time">00–10</span><span class="label">Reframe, not features</span></div>
+        <div class="timeline-row fragment fade-in"><span class="time">10–35</span><span class="label">Tier 1 — From snippet to deliverable</span></div>
+        <div class="timeline-row fragment fade-in"><span class="time">35–60</span><span class="label">Tier 2 — Agentic workflows (the real unlock)</span></div>
+        <div class="timeline-row fragment fade-in"><span class="time">60–80</span><span class="label">Tier 3 — Coding agents</span></div>
+        <div class="timeline-row fragment fade-in"><span class="time">80–90</span><span class="label">Hands-on + close</span></div>
+      </div>
+      <aside class="notes">Every scenario today is Cynoteck-shaped: RFPs, procurement docs, project status reports, real code — not generic demos.</aside>
+    </section>
+
+    <!-- 4: Tier 1 header -->
+    <section class="center-slide">
+      <span class="kicker">10–35 min</span>
+      <h1>Tier 1</h1>
+      <h2 style="border:none;">From snippet to deliverable</h2>
+      <aside class="notes">Set up the pain before the demo: "How many of you have taken an AI reply and manually reformatted it into a Word doc or Excel sheet for a client?"</aside>
+    </section>
+
+    <!-- 5: Tier 1 detail -->
+    <section>
+      <h3>Tier 1 — Live demo</h3>
+      <h2>A messy requirement doc → a real file</h2>
+      <ul class="clean">
+        <li class="fragment fade-up">Take a genuinely messy, anonymized client requirement doc — not a clean staged sample.</li>
+        <li class="fragment fade-up">Ask for a structured <strong>.docx</strong> output: exec summary, grouped requirements, open questions, timeline table.</li>
+        <li class="fragment fade-up">Open the actual file live. Point at one structural choice it made well.</li>
+      </ul>
+      <pre class="fragment fade-up"><code>Read this client requirement document and produce a structured
+Word document with: an executive summary, a numbered list of
+functional requirements grouped by category, a list of open
+questions needing client clarification, and a rough timeline
+estimate table. Save it as a .docx file I can send to the client.</code></pre>
+      <p class="big-line fragment fade-up" style="font-size:1.1em;">"I didn't copy anything. That's the mental shift for tier one."</p>
+      <aside class="notes">
+        Narrate what's happening as it works, not just the end result. Full prompt variants (Excel scoping model, etc.)
+        are in demo-scripts/tier1-deliverables.md.
+      </aside>
+    </section>
+
+    <!-- 6: Tier 2 header -->
+    <section class="center-slide">
+      <span class="kicker">35–60 min</span>
+      <h1>Tier 2</h1>
+      <h2 style="border:none;">Agentic workflows — the real unlock</h2>
+      <aside class="notes">This is the credibility segment — lean on real, specific war stories rather than hypotheticals.</aside>
+    </section>
+
+    <!-- 7: Tier 2 detail -->
+    <section>
+      <h3>Tier 2 — Live demo (pick one)</h3>
+      <h2>Multi-step work, not one prompt</h2>
+      <div class="two-col">
+        <div class="card fragment fade-up">
+          <h3>Option A — RFP Assessment Agent</h3>
+          <p style="font-size:0.7em;">Read the RFP → extract every requirement → cross-check against the capability doc → produce a scored fit assessment with top gaps.</p>
+        </div>
+        <div class="card fragment fade-up">
+          <h3>Option B — Inbox → Draft workflow</h3>
+          <p style="font-size:0.7em;">Search a live thread → summarize where things stand → draft a reply → create a follow-up doc with action items and owners.</p>
+        </div>
+      </div>
+      <p class="big-line fragment fade-up" style="font-size:1.1em; margin-top:0.9em;">"It can do things, not just tell me things."</p>
+      <aside class="notes">
+        Name the steps out loud before running it so the room can follow along. If using the inbox demo, be explicit
+        about scope: read/summarize/draft only — nothing sends without review. Point at a flagged gap or uncertainty,
+        not just the wins — that builds trust.
+      </aside>
+    </section>
+
+    <!-- 8: Tier 3 header -->
+    <section class="center-slide">
+      <span class="kicker">60–80 min</span>
+      <h1>Tier 3</h1>
+      <h2 style="border:none;">Coding agents</h2>
+      <p style="font-size:0.6em; color:var(--muted);">for the technical crowd specifically</p>
+      <aside class="notes">"This next bit is for the engineers, but stay with me even if you're not — this is where the 'junior engineer' analogy really clicks."</aside>
+    </section>
+
+    <!-- 9: Tier 3 detail -->
+    <section>
+      <h3>Tier 3 — Live demo</h3>
+      <h2>Reading the codebase before touching it</h2>
+      <ul class="clean">
+        <li class="fragment fade-up">Show a real failing test or messy function first, plainly — so the room can judge the before/after themselves.</li>
+        <li class="fragment fade-up">Ask it to fix, refactor, or scaffold a new module <em>following existing project conventions</em>.</li>
+        <li class="fragment fade-up">Narrate what it's <em>reading</em>, not just what it's writing — it checks other files before it changes anything.</li>
+      </ul>
+      <p class="big-line fragment fade-up" style="font-size:1.1em;">"That's not autocomplete. That's delegation."</p>
+      <p class="fragment fade-up" style="font-size:0.55em; color:var(--muted);">If code review comes up: agent output still goes through the same PR review process as anyone's code. Nothing merges without a human.</p>
+      <aside class="notes">Full prompt variants (failing test / refactor / new module) are in demo-scripts/tier3-coding-agent.md.</aside>
+    </section>
+
+    <!-- 10: Hands-on -->
+    <section class="center-slide">
+      <span class="kicker">80–90 min</span>
+      <h1>Your turn</h1>
+      <h2 style="border:none;">One task, your own laptop, right now</h2>
+      <p style="font-size:0.6em; color:var(--muted); max-width:24em; margin:0.6em auto;">
+        "Build me an Excel model from this messy CSV" — or — "Connect to my inbox and summarize unread mail."
+      </p>
+      <aside class="notes">Give the task before explaining tool mechanics — let people start immediately. If the room is slow, cue the seeded plant to share their result out loud first.</aside>
+    </section>
+
+    <!-- 11: Close / next steps -->
+    <section>
+      <h3>Closing</h3>
+      <h2>Three things to do this week</h2>
+      <ul class="clean" style="font-size:1.05em;">
+        <li class="fragment fade-up">Request access to the tool(s) shown today.</li>
+        <li class="fragment fade-up">Pick one workflow from today and try it on a real task this week.</li>
+        <li class="fragment fade-up">Know where to ask for help — <em>[name a person / channel here]</em>.</li>
+      </ul>
+      <aside class="notes">Close on next steps, not a recap. The room won't remember a summary slide — they'll remember what they're supposed to do by Friday.</aside>
+    </section>
+
+    <!-- 12: Thank you -->
+    <section class="center-slide">
+      <h1 style="font-size:1.8em;">Questions?</h1>
+      <p style="font-size:0.6em; color:var(--muted); margin-top:1em;">
+        Full outline, speaker notes, demo scripts and backup checklist:<br>
+        <span style="font-family:'JetBrains Mono',monospace;">github.com/pandeytapan/ai-adoption-workshop</span>
+      </p>
+      <div class="footer-tag">Cynoteck · AI-First Adoption Workshop</div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    controls: true,
+    progress: true,
+    keyboard: true,
+    center: false,
+    transition: 'slide',
+    slideNumber: 'c/t',
+    width: 1100,
+    height: 700,
+    margin: 0.06
+  });
+</script>
+</body>
+</html>
