@@ -10,6 +10,15 @@ Pick **one** of the two options below based on what's reliably available on the 
 ## Option A — RFP Assessment Agent
 
 **Setup beforehand:** have a real (anonymized) client RFP and your team's capability/services doc ready.
+A ready-to-run fictional example is included, continuing the same client story as Tier 1:
+[`sample-rfp-distributor-portal.md`](./sample-rfp-distributor-portal.md) (Meridian's formal RFP,
+built directly from the Tier 1 requirements) and
+[`vendor-capability-doc.md`](./vendor-capability-doc.md) (our fictional capability doc — deliberately
+not a perfect match, so the agent has real gaps to catch). A pre-generated real output from running
+the prompt below against both files is included as
+[`rfp-fit-assessment.docx`](./rfp-fit-assessment.docx) — 79% overall fit, with a SOC 2 Type II gap,
+an untested Okta integration, and a kickoff-logistics mismatch flagged as the top 3 items to address.
+All three files are also linked as downloads directly on the Tier 2 slides in the live deck.
 
 **Live prompt sequence:**
 

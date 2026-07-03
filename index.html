@@ -392,6 +392,63 @@ estimate table. Save it as a .docx file I can send to the client.</code></pre>
       </aside>
     </section>
 
+    <!-- 7a: Tier 2 — Option A walkthrough -->
+    <section>
+      <h3>Tier 2 — Option A, live demo</h3>
+      <h2>Same client, one step further down the road</h2>
+      <a class="dl-link" href="demo-scripts/sample-rfp-distributor-portal.md" download>↓ Download sample RFP (.md)</a>
+      <a class="dl-link" href="demo-scripts/vendor-capability-doc.md" download>↓ Download capability doc (.md)</a>
+      <ul class="clean">
+        <li class="fragment fade-up">Meridian's procurement team turned Tier 1's requirements into a formal RFP — sent to a shortlist of vendors, including us.</li>
+        <li class="fragment fade-up">Feed it both documents: the RFP and our own capability doc — the same doc our BD team would use anyway.</li>
+        <li class="fragment fade-up">Watch it work through all four steps live, out loud, before opening the final file.</li>
+      </ul>
+      <p class="big-line fragment fade-up" style="font-size:1.0em;">"Watch what this does: it's going to read the RFP, pull out every requirement, check each one against our capability doc, and score how well we match — that's four steps most people would do by hand over an afternoon."</p>
+      <aside class="notes">
+        Name the four steps out loud before running the prompt — the room needs to follow along, not just see a
+        finished doc appear. Full setup notes are in demo-scripts/tier2-agentic-workflows.md.
+      </aside>
+    </section>
+
+    <!-- 7b: Tier 2 — Option A prompt + output -->
+    <section>
+      <h3>Tier 2 — The prompt</h3>
+      <h2>One prompt, four steps</h2>
+      <pre class="fragment fade-up"><code>Read this client RFP and extract every distinct requirement
+into a list. Then cross-check each requirement against our
+capability document and mark it as: Strong Fit, Partial Fit,
+or Gap. Produce a scored assessment summary — overall fit
+percentage, a table of every requirement with its fit rating
+and a one-line justification, and a short list of the top 3
+gaps we'd need to address before responding.</code></pre>
+      <div class="two-col fragment fade-up" style="margin-top:0.5em;">
+        <div class="card">
+          <h3>Output structure</h3>
+          <p style="font-size:0.65em;">Exec summary · 14 requirements scored · overall fit 79% · top 3 gaps flagged</p>
+        </div>
+        <div class="card">
+          <h3>One line that stands out</h3>
+          <p style="font-size:0.62em; font-style:italic;">"Type I report alone is not sufficient for this engagement" — it caught a hard compliance gap buried on page 2 of a 14-item spec.</p>
+        </div>
+      </div>
+      <a class="dl-link fragment fade-up" href="demo-scripts/rfp-fit-assessment.docx" download>↓ Download the actual .docx</a>
+      <aside class="notes">Narrate the cross-checking as it happens, not just the final output — this is the "multi-step, not one prompt" moment the room needs to see, not just hear about.</aside>
+    </section>
+
+    <!-- 7c: Tier 2 — Option A takeaway -->
+    <section>
+      <h3>Tier 2 — Takeaway</h3>
+      <h2>It didn't just say yes to everything</h2>
+      <ul class="clean">
+        <li class="fragment fade-up">11 of 14 requirements Strong Fit — solid technical overlap with real delivered work, not vibes.</li>
+        <li class="fragment fade-up">Flagged a genuine compliance gap (SOC 2 Type II) buried on page 2 of a 14-item spec — the kind of miss that costs a deal after submission, not before.</li>
+        <li class="fragment fade-up">Also caught two softer risks — an untested Okta integration and a kickoff-logistics mismatch — the cross-check most people would only do by hand, tiredly, near a deadline.</li>
+        <li class="fragment fade-up">A tool that flags its own gaps earns more trust than one that agrees with everything.</li>
+      </ul>
+      <p class="big-line fragment fade-up" style="font-size:1.05em;">Four steps, one prompt, a real gap caught before it became a lost bid.</p>
+      <aside class="notes">Land this before moving to Tier 3 — the audience should leave this beat believing the tool pushed back on something, not just executed cleanly.</aside>
+    </section>
+
     <!-- 8: Tier 3 header -->
     <section class="center-slide">
       <span class="kicker">60–80 min</span>

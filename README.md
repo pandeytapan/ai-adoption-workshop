@@ -21,6 +21,9 @@ Most people at Cynoteck are using AI for snippets — pasting text into a chat b
 | [`demo-scripts/baseline-output-summary.md`](demo-scripts/baseline-output-summary.md) | Example baseline-prompt output ("just summarize it") — the before, for contrast |
 | [`demo-scripts/structured-deliverable.docx`](demo-scripts/structured-deliverable.docx) | Example structured-prompt output — the actual .docx the Tier 1 demo produces |
 | [`demo-scripts/tier2-agentic-workflows.md`](demo-scripts/tier2-agentic-workflows.md) | Prompts for the RFP assessment / inbox agent demo |
+| [`demo-scripts/sample-rfp-distributor-portal.md`](demo-scripts/sample-rfp-distributor-portal.md) | Ready-to-use fictional vendor RFP — continues the Tier 1 client story, the input for the Tier 2 Option A demo |
+| [`demo-scripts/vendor-capability-doc.md`](demo-scripts/vendor-capability-doc.md) | Fictional capability doc for "us" — deliberately not a perfect match, so the agent has real gaps to catch |
+| [`demo-scripts/rfp-fit-assessment.docx`](demo-scripts/rfp-fit-assessment.docx) | Example Tier 2 Option A output — the actual scored fit assessment the demo produces |
 | [`demo-scripts/tier3-coding-agent.md`](demo-scripts/tier3-coding-agent.md) | Prompts for the live coding agent demo |
 
 ## The arc, at a glance
