@@ -12,7 +12,7 @@ Run through this in the days before the session, and again the morning of.
 
 ## Content prep
 
-- [ ] Anonymize any real client data used in demo inputs (RFPs, requirement docs, procurement docs)
+- [ ] Anonymize any real client data used in demo inputs (RFPs, requirement docs, procurement docs) — a fictional sample requiring no anonymization is available at [`../demo-scripts/sample-input-messy-requirements.md`](../demo-scripts/sample-input-messy-requirements.md) if you'd rather not use real client data
 - [ ] Confirm the "messy" input docs are messy enough to be convincing but not so messy the demo stalls
 - [ ] Pick and rehearse exactly one hands-on task for the 80–90 min segment — test it on a fresh account to confirm it works with zero prior setup
 - [ ] Draft the 2–3 concrete next steps for the close (tool access to request, one workflow to try this week, where to ask for help)

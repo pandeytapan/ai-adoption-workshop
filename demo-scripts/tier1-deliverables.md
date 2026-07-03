@@ -6,6 +6,7 @@
 ## Setup beforehand
 
 - Have one real (anonymized) messy client requirement doc ready to paste or upload — the messier and more realistic, the better. Avoid clean, obviously-staged inputs.
+  - A ready-to-use fictional sample is included: [`sample-input-messy-requirements.md`](./sample-input-messy-requirements.md). Use it as-is, or swap in a real anonymized client doc if you have one.
 - Decide in advance which output format best fits your audience's daily work: a Word doc (client-facing summary), an Excel model (scoping/estimation), or a PDF (formal deliverable).
 
 ## Live prompt sequence

@@ -17,6 +17,7 @@ Most people at Cynoteck are using AI for snippets — pasting text into a chat b
 | [`docs/02-speaker-notes.md`](docs/02-speaker-notes.md) | Talking points and narrative for each segment |
 | [`docs/03-demo-backup-checklist.md`](docs/03-demo-backup-checklist.md) | Pre-session checklist: recorded fallbacks, room plant, tool access |
 | [`demo-scripts/tier1-deliverables.md`](demo-scripts/tier1-deliverables.md) | Prompts for the "snippet → deliverable" demo |
+| [`demo-scripts/sample-input-messy-requirements.md`](demo-scripts/sample-input-messy-requirements.md) | Ready-to-use fictional messy client requirement doc — the input for the Tier 1 demo |
 | [`demo-scripts/tier2-agentic-workflows.md`](demo-scripts/tier2-agentic-workflows.md) | Prompts for the RFP assessment / inbox agent demo |
 | [`demo-scripts/tier3-coding-agent.md`](demo-scripts/tier3-coding-agent.md) | Prompts for the live coding agent demo |
 
