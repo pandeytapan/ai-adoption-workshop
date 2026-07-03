@@ -10,7 +10,7 @@
 Open with a blunt before/after:
 
 - **Before:** paste a paragraph into a chat box, get a paragraph back.
-- **After:** an agent that reads a doc, checks three sources, drafts a deliverable, and flags what needs a human.
+- **After:** an AI system that reads a doc, checks three sources, drafts a deliverable, and flags what needs a human.
 
 To make the "before" state concrete rather than just described, the slide shows an actual example exchange:
 
