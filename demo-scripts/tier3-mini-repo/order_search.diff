@@ -1,0 +1,22 @@
+--- before-snapshot/order_search.py	2026-07-03 18:32:26.183008093 +0530
++++ before/order_search.py	2026-07-03 18:32:47.798633023 +0530
+@@ -9,6 +9,8 @@
+ from dataclasses import dataclass
+ from typing import Optional
+ 
++from pagination import total_pages
++
+ 
+ @dataclass
+ class Order:
+@@ -29,9 +31,7 @@
+     ]
+     matches.sort(key=lambda o: o.order_id)
+ 
+-    # Page-count math reimplemented locally instead of using the project's
+-    # shared pagination.total_pages() helper (see invoice_search.py).
+-    pages = len(matches) // page_size
++    pages = total_pages(len(matches), page_size)
+     if page > pages:
+         return []
+ 

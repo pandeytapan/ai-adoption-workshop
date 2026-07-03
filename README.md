@@ -25,6 +25,7 @@ Most people at Cynoteck are using AI for snippets — pasting text into a chat b
 | [`demo-scripts/vendor-capability-doc.md`](demo-scripts/vendor-capability-doc.md) | Fictional capability doc for "us" — deliberately not a perfect match, so the agent has real gaps to catch |
 | [`demo-scripts/rfp-fit-assessment.docx`](demo-scripts/rfp-fit-assessment.docx) | Example Tier 2 Option A output — the actual scored fit assessment the demo produces |
 | [`demo-scripts/tier3-coding-agent.md`](demo-scripts/tier3-coding-agent.md) | Prompts for the live coding agent demo |
+| [`demo-scripts/tier3-mini-repo/`](demo-scripts/tier3-mini-repo/) | Real before/after code for the Tier 3 "fix a failing test" demo — a genuine pagination bug in Meridian's order search, actually reproduced, fixed, and re-tested |
 
 ## The arc, at a glance
 

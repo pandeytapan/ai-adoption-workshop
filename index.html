@@ -560,6 +560,81 @@ gaps we'd need to address before responding.</code></pre>
       <aside class="notes">Full prompt variants (failing test / refactor / new module) are in demo-scripts/tier3-coding-agent.md.</aside>
     </section>
 
+    <!-- 9a: Tier 3 — Option A walkthrough -->
+    <section>
+      <h3>Tier 3 — Option A, live demo</h3>
+      <h2>Same portal, now it's shipping code</h2>
+      <a class="dl-link" href="demo-scripts/tier3-mini-repo/before/order_search.py" download>↓ Download the buggy module (.py)</a>
+      <a class="dl-link" href="demo-scripts/tier3-mini-repo/before/test_order_search.py" download>↓ Download the failing test (.py)</a>
+      <ul class="clean">
+        <li class="fragment fade-up">Hendricks Supply — the high-volume API customer from the RFP — now has 10,050 real orders in the portal's order search.</li>
+        <li class="fragment fade-up">A genuinely failing test: their last page of 50 orders silently vanishes from search. Nobody wrote this bug on purpose.</li>
+        <li class="fragment fade-up">Show the failing test first, plainly, before running anything — the room should see red before it sees the fix.</li>
+      </ul>
+      <p class="big-line fragment fade-up" style="font-size:1.0em;">"This test is failing. Find out why, fix the underlying issue — not just the test — and show me what you changed and why before you commit anything."</p>
+      <aside class="notes">
+        Full setup notes and the actual pytest run are in demo-scripts/tier3-mini-repo/README.md. This was run for
+        real — not staged — including the failing test output on the next slide.
+      </aside>
+    </section>
+
+    <!-- 9b: Tier 3 — reading before touching -->
+    <section>
+      <h3>Tier 3 — Reading before touching</h3>
+      <h2>It checked the codebase before writing a line</h2>
+      <pre class="fragment fade-up"><code>assert len(results) == 50
+E       assert 0 == 50
+E        +  where 0 = len([])
+1 failed, 1 passed in 0.04s</code></pre>
+      <div class="flow-col fragment fade-up" style="margin-top:0.6em;">
+        <div class="flow-step">
+          <span class="step-title">Read the failing test</span>
+          Understood what "correct" means before touching any code
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <span class="step-title">Read order_search.py</span>
+          Found a comment flagging that page-count math was reimplemented locally
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <span class="step-title">Read invoice_search.py + pagination.py</span>
+          Found the project's existing, correct convention already used elsewhere
+        </div>
+      </div>
+      <aside class="notes">
+        This is the "junior engineer checking their own work" beat — narrate that it's reading other files to
+        understand conventions, not autocompleting a line. This sequence was run for real: Read → Read → Read →
+        root cause, using actual file-read tools, not a single pasted-context prompt.
+      </aside>
+    </section>
+
+    <!-- 9c: Tier 3 — the fix + takeaway -->
+    <section>
+      <h3>Tier 3 — The fix</h3>
+      <h2>Three lines, matching the codebase's own convention</h2>
+      <pre class="fragment fade-up"><code>+ from pagination import total_pages
+  ...
+- pages = len(matches) // page_size
++ pages = total_pages(len(matches), page_size)</code></pre>
+      <div class="two-col fragment fade-up" style="margin-top:0.5em;">
+        <div class="card">
+          <h3>Before</h3>
+          <p style="font-size:0.65em;">1 failed, 1 passed</p>
+        </div>
+        <div class="card">
+          <h3>After</h3>
+          <p style="font-size:0.65em;">2 passed — including a regression guard for the existing exact-multiple case</p>
+        </div>
+      </div>
+      <a class="dl-link fragment fade-up" href="demo-scripts/tier3-mini-repo/order_search.diff" download>↓ Download the actual diff</a>
+      <p class="big-line fragment fade-up" style="font-size:1.0em;">Unlike Tier 2, this one really did call tools — it read three files and ran the tests, for real.</p>
+      <aside class="notes">
+        Good callback if the Tier 2 "under the hood" slide came up: this is what the right-hand column of that
+        diagram actually looks like when it's real, not aspirational. "That's not autocomplete. That's delegation."
+      </aside>
+    </section>
+
     <!-- 10: Hands-on -->
     <section class="center-slide">
       <span class="kicker">80–90 min</span>

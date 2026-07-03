@@ -18,6 +18,17 @@
 
 > "This test is failing. Find out why, fix the underlying issue (not just the test), and show me what you changed and why before you commit anything."
 
+A fully worked, real (not staged) example of this exact prompt is in
+[`tier3-mini-repo/`](tier3-mini-repo/) — it continues the Meridian story:
+a genuinely failing pagination test in the distributor-portal's order
+search, hit while implementing RFP requirement #6. The bug, the failing
+test run, the fix, and the passing re-run were all actually executed, not
+narrated. Root cause: the module reimplemented page-count math locally
+instead of using the codebase's existing shared helper (already used
+correctly elsewhere) — so the fix is also a "read the conventions first"
+moment, not just a one-line patch. See `tier3-mini-repo/README.md` for the
+full before/after/diff.
+
 **Option B — refactor a function:**
 
 > "This function has grown hard to follow. Refactor it for clarity following the conventions already used elsewhere in this codebase — check how similar functions are structured first. Don't change its behavior."
