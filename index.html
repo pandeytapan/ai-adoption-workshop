@@ -20,7 +20,7 @@
     --bg-soft: #f6f8fb;
   }
 
-  .reveal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--ink); }
+  .reveal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--ink); font-size: 28px; }
 
   .reveal h1, .reveal h2, .reveal h3 {
     font-family: 'Inter', sans-serif;
@@ -28,15 +28,16 @@
     letter-spacing: -0.02em;
     text-transform: none;
     color: var(--ink);
+    margin: 0 0 0.3em 0;
   }
 
   .reveal h1 { font-size: 2.4em; }
-  .reveal h2 { font-size: 1.7em; color: var(--accent-dark); }
-  .reveal h3 { font-size: 1.15em; color: var(--muted); font-weight: 600; }
+  .reveal h2 { font-size: 1.7em; color: var(--accent-dark); margin-bottom: 0.45em; }
+  .reveal h3 { font-size: 1.15em; color: var(--muted); font-weight: 600; margin-bottom: 0.2em; }
 
-  .reveal p, .reveal li { font-weight: 400; color: var(--ink); line-height: 1.5; }
+  .reveal p, .reveal li { font-weight: 400; color: var(--ink); line-height: 1.4; }
 
-  .reveal .slides section { text-align: left; padding: 20px 10px; }
+  .reveal .slides section { text-align: left; padding: 14px 10px; }
   .reveal .slides section.center-slide { text-align: center; }
 
   .kicker {
@@ -53,22 +54,23 @@
   }
 
   .big-line {
-    font-size: 1.5em;
+    font-size: 1.05em;
     font-weight: 700;
+    line-height: 1.35;
     color: var(--accent-dark);
     border-left: 6px solid var(--accent);
-    padding: 0.3em 0.6em;
+    padding: 0.35em 0.6em;
     background: var(--bg-soft);
     border-radius: 6px;
-    margin: 0.6em 0;
+    margin: 0.5em 0;
   }
 
-  .reveal .timeline { display: flex; flex-direction: column; gap: 0.55em; margin-top: 0.4em; }
+  .reveal .timeline { display: flex; flex-direction: column; gap: 0.4em; margin-top: 0.4em; }
   .timeline-row {
     display: flex;
     align-items: baseline;
     gap: 0.8em;
-    padding: 0.55em 0.9em;
+    padding: 0.4em 0.9em;
     border-radius: 8px;
     background: var(--bg-soft);
     border-left: 5px solid var(--accent);
@@ -81,20 +83,21 @@
     font-family: 'JetBrains Mono', monospace;
     background: var(--bg-soft);
     color: var(--ink);
-    padding: 16px;
-    font-size: 0.55em;
-    line-height: 1.5;
+    padding: 12px;
+    font-size: 0.5em;
+    line-height: 1.35;
     max-height: none;
   }
 
-  .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; }
+  .reveal .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; align-items: start; }
   .reveal .card {
     background: var(--bg-soft);
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 1em 1.2em;
+    padding: 0.6em 0.85em;
   }
-  .reveal .card h3 { margin-top: 0; color: var(--accent-dark); }
+  .reveal .card h3 { margin-top: 0; margin-bottom: 0.35em; font-size: 1em; color: var(--accent-dark); }
+  .reveal .card p { line-height: 1.35; margin: 0; }
 
   .reveal .tag {
     display: inline-block;
@@ -111,8 +114,9 @@
   .reveal ul.clean li {
     position: relative;
     padding-left: 1.4em;
-    margin-bottom: 0.55em;
-    font-size: 0.85em;
+    margin-bottom: 0.4em;
+    font-size: 0.78em;
+    line-height: 1.35;
   }
   .reveal ul.clean li::before {
     content: "→";
@@ -122,12 +126,12 @@
     font-weight: 700;
   }
 
-  .reveal .chat-mock { display: flex; flex-direction: column; gap: 0.45em; margin-top: 0.6em; }
+  .reveal .chat-mock { display: flex; flex-direction: column; gap: 0.4em; margin-top: 0.5em; }
   .reveal .bubble {
     border-radius: 8px;
-    padding: 0.55em 0.75em;
-    font-size: 0.58em;
-    line-height: 1.45;
+    padding: 0.45em 0.65em;
+    font-size: 0.55em;
+    line-height: 1.35;
     font-style: italic;
   }
   .reveal .bubble .who {
@@ -181,19 +185,31 @@
       </aside>
     </section>
 
-    <!-- 2: The gap / reframe -->
+    <!-- 2: The gap / reframe — concrete example -->
     <section>
       <h3>00 — Reframe, not features</h3>
-      <h2>What most people think AI is</h2>
+      <h2>What "paste and copy" actually looks like</h2>
+      <div class="chat-mock" style="max-width: 34em; margin-top: 0.9em;">
+        <div class="bubble user" style="font-size: 0.68em;"><span class="who">Pasted in</span>"We need bulk invoice uploads, an approval step before finance sees it, and search that doesn't crawl once we're past 10k records. Also has to work with our SSO. Rough timeline?"</div>
+        <div class="bubble ai" style="font-size: 0.68em;"><span class="who">Copied out</span>"Here's a summary: 1) Bulk upload 2) Approval workflow 3) Faster search 4) SSO integration. Let me know if you'd like more detail!"</div>
+      </div>
+      <p class="fragment fade-up" style="font-size: 0.62em; color: var(--muted); margin-top: 0.7em;">→ then copied out and manually reformatted into whatever the client actually needs. That reformatting step is the 90%.</p>
+      <aside class="notes">
+        Set up the pain before naming it: "How many of you have taken a reply like this and manually turned it into
+        something a client can actually use?" This is the exact shape of what most people mean when they say
+        "I use AI for work" — and it's the ceiling we're about to blow past.
+      </aside>
+    </section>
+
+    <!-- 3: The gap / reframe — today vs possible -->
+    <section>
+      <h3>00 — Reframe, not features</h3>
+      <h2>Today vs. what's possible</h2>
       <div class="two-col" style="margin-top:0.6em;">
         <div class="card fragment fade-up">
           <span class="tag">TODAY</span>
           <h3>Paste → Copy</h3>
-          <div class="chat-mock">
-            <div class="bubble user"><span class="who">Pasted in</span>"We need bulk invoice uploads, an approval step before finance sees it, and search that doesn't crawl once we're past 10k records. Also has to work with our SSO. Rough timeline?"</div>
-            <div class="bubble ai"><span class="who">Copied out</span>"Here's a summary: 1) Bulk upload 2) Approval workflow 3) Faster search 4) SSO integration. Let me know if you'd like more detail!"</div>
-          </div>
-          <p style="font-size:0.55em; color:var(--muted); margin-top:0.5em;">→ then manually reformatted into whatever the client actually needs.</p>
+          <p style="font-size:0.75em;">A paragraph in, a paragraph out. You do the reformatting, the cross-checking, the follow-up — by hand.</p>
         </div>
         <div class="card fragment fade-up">
           <span class="tag">POSSIBLE</span>
