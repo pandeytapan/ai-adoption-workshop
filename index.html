@@ -545,9 +545,9 @@ gaps we'd need to address before responding.</code></pre>
       <h3>Tier 3 — Live demo</h3>
       <h2>Reading the codebase before touching it</h2>
       <ul class="clean">
-        <li class="fragment fade-up">Show a real failing test or messy function first, plainly — so the room can judge the before/after themselves.</li>
-        <li class="fragment fade-up">Ask it to fix, refactor, or scaffold a new module <em>following existing project conventions</em>.</li>
-        <li class="fragment fade-up">Narrate what it's <em>reading</em>, not just what it's writing — it checks other files before it changes anything.</li>
+        <li class="fragment fade-up">Check a real failing test or messy function first, plainly — human can judge it themselves.</li>
+        <li class="fragment fade-up">Ask AI to fix, refactor, or scaffold a new module <em>following existing project conventions</em>.</li>
+        <li class="fragment fade-up">Narrate what it's <em>reading</em>, not just what it's writing — check other files before changing anything.</li>
       </ul>
       <p class="big-line fragment fade-up" style="font-size:1.1em;">"That's not autocomplete. That's delegation."</p>
       <p class="fragment fade-up" style="font-size:0.55em; color:var(--muted);">If code review comes up: agent output still goes through the same PR review process as anyone's code. Nothing merges without a human.</p>
@@ -561,9 +561,9 @@ gaps we'd need to address before responding.</code></pre>
       <a class="dl-link" href="demo-scripts/tier3-mini-repo/before/order_search.py" download>↓ Download the buggy module (.py)</a>
       <a class="dl-link" href="demo-scripts/tier3-mini-repo/before/test_order_search.py" download>↓ Download the failing test (.py)</a>
       <ul class="clean">
-        <li class="fragment fade-up">Hendricks Supply — the high-volume API customer from the RFP — now has 10,050 real orders in the portal's order search.</li>
+        <li class="fragment fade-up">Hendricks Supply — the customer from the RFP — now has 10,050 real orders in the portal's order search.</li>
         <li class="fragment fade-up">A genuinely failing test: their last page of 50 orders silently vanishes from search. Nobody wrote this bug on purpose.</li>
-        <li class="fragment fade-up">Show the failing test first, plainly, before running anything — the room should see red before it sees the fix.</li>
+        <li class="fragment fade-up">See the failing test first, plainly, before running anything — the room should see red before it sees the fix.</li>
       </ul>
       <p class="big-line fragment fade-up" style="font-size:1.0em;">"This test is failing. Find out why, fix the underlying issue — not just the test — and show me what you changed and why before you commit anything."</p>
       <aside class="notes">
