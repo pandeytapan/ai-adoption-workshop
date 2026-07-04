@@ -637,7 +637,20 @@ E        +  where 0 = len([])
       <p style="font-size:0.6em; color:var(--muted); max-width:24em; margin:0.6em auto;">
         "Build me an Excel model from this messy CSV" — or — "Connect to my inbox and summarize unread mail."
       </p>
-      <aside class="notes">Give the task before explaining tool mechanics — let people start immediately. If the room is slow, cue the seeded plant to share their result out loud first.</aside>
+      <div class="fragment fade-up" style="text-align:left; max-width:32em; margin:0.7em auto 0;">
+        <p style="font-size:0.5em; color:var(--muted); margin-bottom:0.25em;">No CSV of your own handy? Use this sample and try the prompt below:</p>
+        <pre style="margin:0;"><code style="font-size:0.52em;">Here's a messy gameplay log from our Mario-themed test course
+(mario-game-session-log.csv). Clean up the data, then build an
+Excel workbook with: a per-track average lap time and death-rate
+table, a character performance table (sessions, avg lap time,
+total coins), a chart comparing tracks, and a short list of the
+data quality issues you found. Save it as an .xlsx file.</code></pre>
+      </div>
+      <div class="fragment fade-up" style="margin-top:0.5em;">
+        <a class="dl-link" href="demo-scripts/mario-game-session-log.csv" download>↓ Download the sample CSV</a>
+        <a class="dl-link" href="demo-scripts/mario-game-insights-sample-output.xlsx" download style="margin-left:0.5em;">↓ See a sample output .xlsx</a>
+      </div>
+      <aside class="notes">Give the task before explaining tool mechanics — let people start immediately. If the room is slow, cue the seeded plant to share their result out loud first. The Mario CSV is a fallback for anyone without their own messy data — the sample output is there to show what "good" looks like if someone asks, not something to hand out up front.</aside>
     </section>
 
     <!-- 11: Close / next steps -->
